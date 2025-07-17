@@ -1,0 +1,1122 @@
+{
+	"info": {
+		"_postman_id": "ff594c83-29e5-45c0-b249-fc094615f26a",
+		"name": "SecurityJWTITFPS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45552316"
+	},
+	"item": [
+		{
+			"name": "loginAdmin",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "centro8",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"centro8\",\r\n    \"password\":\"1234\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearPermisoRead",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNzMxODk3LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1Mjc0OTg5NywiaWF0IjoxNzUyNzMxODk3LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiJjNmQxNTgzYi1iNzE1LTQ4ZjAtYTExMi0zMTI5ZDYxMWU4ZjkifQ.f_9zR0rn7z8VRHYCHjJiG4NvmPfqPXG05pSAn-Xqy68",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"permissionName\": \"READ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/permissions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearPermisoCreate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNzc4Mjc4LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1Mjc5NjI3OCwiaWF0IjoxNzUyNzc4Mjc4LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI1ODQ0NDQ3YS0xYTczLTQ4MDMtYjc5OC04MmRjM2JlNGVlNzcifQ.SuNp-d3V7tjeEoItrsA5gI1-NduJjGQOC4ARS5KKkR4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"permissionName\": \"CREATE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/permissions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createRoleUser",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNzc4Mjc4LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1Mjc5NjI3OCwiaWF0IjoxNzUyNzc4Mjc4LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI1ODQ0NDQ3YS0xYTczLTQ4MDMtYjc5OC04MmRjM2JlNGVlNzcifQ.SuNp-d3V7tjeEoItrsA5gI1-NduJjGQOC4ARS5KKkR4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role\": \"USER\",\r\n    \"permissionsList\": [\r\n{ \"id\": 1 }, // READ\r\n{ \"id\": 2 }, // UPDATE\r\n{ \"id\": 3 }, // CREATE\r\n{ \"id\": 4 }  // DELETE\r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/roles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "holaseg",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNzc5MTUzLCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1Mjc5NzE1MywiaWF0IjoxNzUyNzc5MTUzLCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI5NzM2NzUzZC0wYmYzLTQ2YTktYmUwOC1jOTBiM2QyZTc0NmMifQ.aVtgI7gHFyia1VtDW3hiRNcpcVPXFNI9yg9T21fQujg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/holaseg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"holaseg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearUsuarioVendedor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNzc5MTUzLCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1Mjc5NzE1MywiaWF0IjoxNzUyNzc5MTUzLCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI5NzM2NzUzZC0wYmYzLTQ2YTktYmUwOC1jOTBiM2QyZTc0NmMifQ.aVtgI7gHFyia1VtDW3hiRNcpcVPXFNI9yg9T21fQujg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"vendedor\",\r\n    \"password\": \"1234\",\r\n    \"enabled\": true,\r\n    \"accountNotExpired\": true,\r\n    \"accountNotLocked\": true,\r\n    \"credentialNotExpired\": true,\r\n    \"rolesList\": [\r\n        {\r\n            \"id\": 2 // ID del rol USER\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarTodosLosPermisos",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNjczODM4LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1MjY5MTgzOCwiaWF0IjoxNzUyNjczODM4LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiJmNDgxYTZhYi1mZGUxLTRhNDYtYWM3ZC02MzJmYjBkMTFmODIifQ.XCjIK6bmw1NbH_hIa5vcRf9SnhCBW1iPp7GHvwqsfxw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/permissions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarUnPermiso",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNjczODM4LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1MjY5MTgzOCwiaWF0IjoxNzUyNjczODM4LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiJmNDgxYTZhYi1mZGUxLTRhNDYtYWM3ZC02MzJmYjBkMTFmODIifQ.XCjIK6bmw1NbH_hIa5vcRf9SnhCBW1iPp7GHvwqsfxw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/permissions/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"permissions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarTodosLosRoles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNjczODM4LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1MjY5MTgzOCwiaWF0IjoxNzUyNjczODM4LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiJmNDgxYTZhYi1mZGUxLTRhNDYtYWM3ZC02MzJmYjBkMTFmODIifQ.XCjIK6bmw1NbH_hIa5vcRf9SnhCBW1iPp7GHvwqsfxw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/roles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarUnRol",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNjczODM4LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1MjY5MTgzOCwiaWF0IjoxNzUyNjczODM4LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiJmNDgxYTZhYi1mZGUxLTRhNDYtYWM3ZC02MzJmYjBkMTFmODIifQ.XCjIK6bmw1NbH_hIa5vcRf9SnhCBW1iPp7GHvwqsfxw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/roles/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"roles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarTodosLosUsuarios",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNjczODM4LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1MjY5MTgzOCwiaWF0IjoxNzUyNjczODM4LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiJmNDgxYTZhYi1mZGUxLTRhNDYtYWM3ZC02MzJmYjBkMTFmODIifQ.XCjIK6bmw1NbH_hIa5vcRf9SnhCBW1iPp7GHvwqsfxw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarUnUsuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbGllbnRlIiwibmJmIjoxNzUyNjc1MTc0LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1MjY5MzE3NCwiaWF0IjoxNzUyNjc1MTc0LCJhdXRob3JpdGllcyI6IlJFQUQsUk9MRV9HVUVTVCIsImp0aSI6IjJmN2FiYWNhLTYyNjgtNGU2MC04MWViLWMyMWU3YTM0NzA2ZiJ9.3kmTPz8Bn76dROHniZFJBrIDmREDtxBD6lR59EFho64",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearPermisoUpdate",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNjkyNzg5LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1MjcxMDc4OSwiaWF0IjoxNzUyNjkyNzg5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI0NjY3ZjgzZi01YThhLTRhZmQtOWE1YS0yNzNjMjg1MmFjODMifQ.7wOhz52nQvkTm3atZrCxDQz20vWN13ak9VGWpTXW72E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"permissionName\": \"UPDATE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/permissions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearPermisoDelete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNzc4Mjc4LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1Mjc5NjI3OCwiaWF0IjoxNzUyNzc4Mjc4LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI1ODQ0NDQ3YS0xYTczLTQ4MDMtYjc5OC04MmRjM2JlNGVlNzcifQ.SuNp-d3V7tjeEoItrsA5gI1-NduJjGQOC4ARS5KKkR4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"permissionName\": \"DELETE\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/permissions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearRoleGuest",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNjkyNzg5LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1MjcxMDc4OSwiaWF0IjoxNzUyNjkyNzg5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI0NjY3ZjgzZi01YThhLTRhZmQtOWE1YS0yNzNjMjg1MmFjODMifQ.7wOhz52nQvkTm3atZrCxDQz20vWN13ak9VGWpTXW72E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role\": \"GUEST\",\r\n    \"permissionsList\": [\r\n{ \"id\": 1 } // READ\r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/roles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearUsuarioCliente",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNzc4Mjc4LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1Mjc5NjI3OCwiaWF0IjoxNzUyNzc4Mjc4LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI1ODQ0NDQ3YS0xYTczLTQ4MDMtYjc5OC04MmRjM2JlNGVlNzcifQ.SuNp-d3V7tjeEoItrsA5gI1-NduJjGQOC4ARS5KKkR4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"username\": \"cliente\",\r\n    \"password\": \"1234\",\r\n    \"enabled\": true,\r\n    \"accountNotExpired\": true,\r\n    \"accountNotLocked\": true,\r\n    \"credentialNotExpired\": true,\r\n    \"rolesList\": [\r\n        {\r\n            \"id\": 3 // ID del rol GUEST\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginUser",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "vendedor",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"vendedor\",\r\n    \"password\":\"1234\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarTodosLosPedidos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNzc5MTUzLCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1Mjc5NzE1MywiaWF0IjoxNzUyNzc5MTUzLCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI5NzM2NzUzZC0wYmYzLTQ2YTktYmUwOC1jOTBiM2QyZTc0NmMifQ.aVtgI7gHFyia1VtDW3hiRNcpcVPXFNI9yg9T21fQujg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearPedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNjkyNzg5LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1MjcxMDc4OSwiaWF0IjoxNzUyNjkyNzg5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI0NjY3ZjgzZi01YThhLTRhZmQtOWE1YS0yNzNjMjg1MmFjODMifQ.7wOhz52nQvkTm3atZrCxDQz20vWN13ak9VGWpTXW72E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pedido\": \"4 empanadas y 1 pizzas\",\r\n  \"observaciones\": \"El pedido ha sido pagado con tarjeta de credito\",\r\n  \"fecha\": \"2025-07-16\",\r\n  \"productosList\": [\r\n    { \"id\": 4 },\r\n    { \"id\": 5}\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearProducto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNzc5MTUzLCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1Mjc5NzE1MywiaWF0IjoxNzUyNzc5MTUzLCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI5NzM2NzUzZC0wYmYzLTQ2YTktYmUwOC1jOTBiM2QyZTc0NmMifQ.aVtgI7gHFyia1VtDW3hiRNcpcVPXFNI9yg9T21fQujg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreProducto\": \"empanada de carne\",\r\n    \"categoria\": \"empanada\",\r\n    \"precioUnitario\": 4000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarTodosLosProductos",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbGllbnRlIiwibmJmIjoxNzUyNzAwNDA0LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1MjcxODQwNCwiaWF0IjoxNzUyNzAwNDA0LCJhdXRob3JpdGllcyI6IlJFQUQsUk9MRV9HVUVTVCIsImp0aSI6ImIyNzI2NDZhLTlhMWQtNGRmMi1hZWMxLTBhOGZlOGM2OTZlNiJ9.dv3ucdl6EoQkzX1YypSL8qNThr-GWhKjUUEFe-CcfXc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginGuest",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "cliente",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"cliente\",\r\n    \"password\":\"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarProductoPorID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNjkyNzg5LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1MjcxMDc4OSwiaWF0IjoxNzUyNjkyNzg5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI0NjY3ZjgzZi01YThhLTRhZmQtOWE1YS0yNzNjMjg1MmFjODMifQ.7wOhz52nQvkTm3atZrCxDQz20vWN13ak9VGWpTXW72E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/productos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizarProducto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNjkyNzg5LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1MjcxMDc4OSwiaWF0IjoxNzUyNjkyNzg5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI0NjY3ZjgzZi01YThhLTRhZmQtOWE1YS0yNzNjMjg1MmFjODMifQ.7wOhz52nQvkTm3atZrCxDQz20vWN13ak9VGWpTXW72E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreProducto\": \"empanada de osobuco\",\r\n    \"categoria\": \"empanada\",\r\n    \"precioUnitario\": 3991\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/productos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminarProducto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNzc5MTUzLCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1Mjc5NzE1MywiaWF0IjoxNzUyNzc5MTUzLCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI5NzM2NzUzZC0wYmYzLTQ2YTktYmUwOC1jOTBiM2QyZTc0NmMifQ.aVtgI7gHFyia1VtDW3hiRNcpcVPXFNI9yg9T21fQujg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/productos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarUnPedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5kZWRvciIsIm5iZiI6MTc1Mjc3OTQwNSwiaXNzIjoiQ0VOVFJPOC1TRUMiLCJleHAiOjE3NTI3OTc0MDUsImlhdCI6MTc1Mjc3OTQwNSwiYXV0aG9yaXRpZXMiOiJDUkVBVEUsREVMRVRFLFJFQUQsUk9MRV9VU0VSLFVQREFURSIsImp0aSI6IjJlYmFlNDk2LTQ5OGYtNGVhMy1hMTAxLWU5MzFjY2M1MGMxNCJ9.mkpm8oKV3vpPMfqw7xSDB8xpYRmGSm85f77Ymh2_7QM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/pedidos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pedidos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizarPedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNjkyNzg5LCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1MjcxMDc4OSwiaWF0IjoxNzUyNjkyNzg5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI0NjY3ZjgzZi01YThhLTRhZmQtOWE1YS0yNzNjMjg1MmFjODMifQ.7wOhz52nQvkTm3atZrCxDQz20vWN13ak9VGWpTXW72E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pedido\": \"3 pizzas grandes\",\r\n  \"observaciones\": \"El pedido ha sido pagado con tarjeta de credito\",\r\n  \"fecha\": \"2025-07-16\",\r\n  \"productosList\": [\r\n    { \"id\": 5 } \r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/pedidos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pedidos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminarPedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZW50cm84IiwibmJmIjoxNzUyNzc5MTUzLCJpc3MiOiJDRU5UUk84LVNFQyIsImV4cCI6MTc1Mjc5NzE1MywiaWF0IjoxNzUyNzc5MTUzLCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJqdGkiOiI5NzM2NzUzZC0wYmYzLTQ2YTktYmUwOC1jOTBiM2QyZTc0NmMifQ.aVtgI7gHFyia1VtDW3hiRNcpcVPXFNI9yg9T21fQujg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/pedidos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pedidos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "cliente",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"cliente\",\r\n    \"password\":\"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "holaNoSeg",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/holanoseg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"holanoseg"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
